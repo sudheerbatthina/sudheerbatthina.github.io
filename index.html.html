@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sudheer Kumar Reddy Batthina — Senior AI/ML Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080C14;--surface:#0E1421;--card:#141D2E;
+  --accent:#6C63FF;--adim:rgba(108,99,255,.12);--aglow:rgba(108,99,255,.32);
+  --warm:#FF7043;--wdim:rgba(255,112,67,.13);
+  --green:#34D399;--gdim:rgba(52,211,153,.12);
+  --text:#ECF0FF;--muted:#8292A8;
+  --border:rgba(108,99,255,.13);--subtle:rgba(255,255,255,.055);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,12,20,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--subtle);transition:padding .3s}
+nav.sc{padding:.65rem 2.5rem}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:.03em}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:1.75rem;list-style:none}
+.links a{color:var(--muted);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.links a:hover{color:var(--accent)}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:8rem 2rem 5rem}
+#cvs{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hc{position:relative;z-index:1;text-align:center;max-width:880px}
+.eyebrow{font-family:'Fira Code',monospace;font-size:.78rem;color:var(--accent);letter-spacing:.22em;text-transform:uppercase;margin-bottom:1.4rem;opacity:0;animation:fu .8s ease .3s forwards}
+.hname{font-family:'Cormorant Garamond',serif;font-size:clamp(2.7rem,6.2vw,5.4rem);font-weight:700;line-height:1.07;letter-spacing:-.01em;margin-bottom:1rem;opacity:0;animation:fu .8s ease .5s forwards}
+.hname .hi{color:var(--accent)}
+.htw{font-size:clamp(1rem,2.2vw,1.35rem);font-weight:300;color:var(--muted);margin-bottom:2rem;height:2.2em;overflow:hidden;opacity:0;animation:fu .8s ease .7s forwards}
+.roller{display:flex;flex-direction:column;animation:roll 10s ease-in-out infinite}
+.roller span{height:2.2em;line-height:2.2em;display:block}
+.roller span em{color:var(--accent);font-style:normal;font-weight:600}
+@keyframes roll{0%,20%{transform:translateY(0)}25%,45%{transform:translateY(-2.2em)}50%,70%{transform:translateY(-4.4em)}75%,95%{transform:translateY(-6.6em)}100%{transform:translateY(0)}}
+.hbio{font-size:1.05rem;color:var(--muted);max-width:590px;margin:0 auto 2.75rem;line-height:1.8;opacity:0;animation:fu .8s ease .9s forwards}
+.hbio strong{color:var(--text)}
+.hcta{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fu .8s ease 1.1s forwards}
+.btn{display:inline-flex;align-items:center;gap:.45rem;padding:.7rem 1.65rem;border-radius:7px;font-size:.86rem;font-weight:600;font-family:'DM Sans',sans-serif;text-decoration:none;border:none;cursor:pointer;transition:all .25s;letter-spacing:.02em}
+.bp{background:var(--accent);color:#fff}
+.bp:hover{background:#7c73ff;box-shadow:0 0 28px var(--aglow);transform:translateY(-2px)}
+.bo{background:transparent;color:var(--text);border:1px solid var(--subtle)}
+.bo:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.bg{background:var(--green);color:#0b2818}
+.bg:hover{background:#5eead4;transform:translateY(-2px)}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--muted);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;opacity:0;animation:fu 1s ease 1.7s forwards}
+.pip{width:5px;height:5px;background:var(--accent);border-radius:50%;animation:pb 1.6s ease-in-out infinite}
+@keyframes pb{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* STATUS BADGE */
+.status-badge{display:inline-flex;align-items:center;gap:.45rem;background:var(--gdim);border:1px solid rgba(52,211,153,.25);color:var(--green);font-family:'Fira Code',monospace;font-size:.72rem;padding:.3rem .85rem;border-radius:20px;margin-bottom:1.4rem}
+.sdot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+
+/* SECTIONS */
+section{padding:5.5rem 2rem}
+.con{max-width:1080px;margin:0 auto}
+.sh{margin-bottom:3.25rem}
+.slbl{font-family:'Fira Code',monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.45rem}
+.stit{font-family:'Cormorant Garamond',serif;font-size:clamp(1.85rem,3.8vw,2.75rem);font-weight:700;color:var(--text);line-height:1.1}
+.srul{width:42px;height:3px;background:var(--accent);border-radius:2px;margin-top:.85rem}
+
+/* ABOUT */
+#about{background:var(--surface);border-top:1px solid var(--subtle);border-bottom:1px solid var(--subtle)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:3.75rem;align-items:start}
+.abio{font-size:1.01rem;line-height:1.82;color:var(--muted)}
+.abio p{margin-bottom:1rem}
+.abio strong{color:var(--text)}
+.abio a{color:var(--accent);text-decoration:none;font-weight:500;transition:opacity .2s}
+.abio a:hover{opacity:.75}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.st{background:var(--card);border:1px solid var(--subtle);border-radius:12px;padding:1.4rem;transition:border-color .2s,transform .2s}
+.st:hover{border-color:var(--accent);transform:translateY(-2px)}
+.sn{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.2rem}
+.sl{font-size:.8rem;color:var(--muted);font-weight:500}
+.edu{margin-top:2.25rem;background:var(--card);border:1px solid var(--subtle);border-radius:12px;padding:1.65rem 1.85rem;display:flex;gap:1.2rem;align-items:center;max-width:600px}
+.eduico{font-size:2.1rem;flex-shrink:0}
+.edudeg{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:.2rem}
+.eduuni{color:var(--accent);font-size:.9rem;font-weight:500;margin-bottom:.2rem}
+.eduyear{font-size:.77rem;color:var(--muted);font-family:'Fira Code',monospace}
+
+/* EXPERIENCE */
+#experience{background:var(--bg)}
+.tl{position:relative;padding-left:1.75rem}
+.tl::before{content:'';position:absolute;left:0;top:.4rem;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent) 55%,transparent)}
+.ti{position:relative;margin-bottom:3rem;padding-left:2rem}
+.ti::before{content:'';position:absolute;left:-1.75rem;top:.28rem;width:11px;height:11px;background:var(--accent);border-radius:50%;box-shadow:0 0 14px var(--aglow)}
+.ti.current::before{background:var(--green);box-shadow:0 0 14px rgba(52,211,153,.5)}
+.tmeta{display:flex;align-items:center;gap:.8rem;margin-bottom:.3rem;flex-wrap:wrap}
+.tco{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:700;color:var(--text)}
+.trole{font-size:.76rem;color:var(--accent);background:var(--adim);padding:.18rem .7rem;border-radius:20px;font-weight:500;font-family:'Fira Code',monospace}
+.trole.cur{color:var(--green);background:var(--gdim)}
+.tperiod{font-size:.76rem;color:var(--muted);font-family:'Fira Code',monospace}
+.tbullets{list-style:none;margin-top:.7rem;display:flex;flex-direction:column;gap:.42rem}
+.tbullets li{font-size:.93rem;color:var(--muted);padding-left:1.2rem;position:relative;line-height:1.65}
+.tbullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.77rem;top:.16em}
+.badge{display:inline-block;background:var(--wdim);color:var(--warm);font-family:'Fira Code',monospace;font-size:.7rem;padding:.12rem .42rem;border-radius:4px;font-weight:500;margin-left:.28rem}
+.badge.g{background:var(--gdim);color:var(--green)}
+
+/* SKILLS */
+#skills{background:var(--surface);border-top:1px solid var(--subtle);border-bottom:1px solid var(--subtle)}
+.skgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.35rem}
+.scat{background:var(--card);border:1px solid var(--subtle);border-radius:12px;padding:1.5rem;transition:border-color .2s}
+.scat:hover{border-color:var(--accent)}
+.scico{font-size:1.35rem;margin-bottom:.6rem}
+.scname{font-size:.7rem;font-family:'Fira Code',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{background:var(--surface);border:1px solid var(--subtle);color:var(--muted);font-size:.77rem;padding:.26rem .68rem;border-radius:20px;font-weight:500;transition:all .2s;cursor:default}
+.tag:hover{border-color:var(--accent);color:var(--accent);background:var(--adim)}
+
+/* PROJECTS */
+#projects{background:var(--bg)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:1.2rem}
+.pc{background:var(--card);border:1px solid var(--subtle);border-radius:12px;padding:1.55rem;display:flex;flex-direction:column;gap:.85rem;transition:all .25s;text-decoration:none;color:inherit}
+.pc:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 12px 40px rgba(108,99,255,.12)}
+.pc.featured{border-color:rgba(52,211,153,.22);background:linear-gradient(135deg,var(--card),rgba(52,211,153,.04))}
+.pc.featured:hover{border-color:var(--green);box-shadow:0 12px 40px rgba(52,211,153,.12)}
+.ptop{display:flex;justify-content:space-between;align-items:flex-start}
+.pico{font-size:1.35rem}
+.pext{color:var(--muted);transition:color .2s}
+.pc:hover .pext{color:var(--accent)}
+.pname{font-size:1.03rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:.5rem}
+.flive{font-size:.68rem;font-family:'Fira Code',monospace;background:var(--gdim);color:var(--green);padding:.14rem .5rem;border-radius:4px;border:1px solid rgba(52,211,153,.25)}
+.pdesc{font-size:.87rem;color:var(--muted);line-height:1.65;flex:1}
+.ptags{display:flex;flex-wrap:wrap;gap:.35rem}
+.ptag{font-size:.72rem;font-family:'Fira Code',monospace;background:var(--adim);color:var(--accent);padding:.18rem .55rem;border-radius:4px}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--surface);border-top:1px solid var(--subtle);border-bottom:1px solid var(--subtle)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:1.05rem}
+.cc{background:var(--card);border:1px solid var(--subtle);border-radius:12px;padding:1.35rem;display:flex;gap:.9rem;align-items:flex-start;transition:border-color .2s,transform .2s}
+.cc:hover{border-color:var(--accent);transform:translateY(-2px)}
+.cico{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0}
+.c1{background:rgba(255,153,0,.16)} .c2{background:rgba(66,133,244,.16)}
+.c3{background:rgba(0,160,200,.16)}  .c4{background:rgba(30,100,200,.16)}
+.c5{background:rgba(0,119,181,.16)}
+.cbody h4{font-size:.87rem;font-weight:600;color:var(--text);margin-bottom:.22rem;line-height:1.4}
+.ciss{font-size:.74rem;color:var(--muted);font-family:'Fira Code',monospace}
+
+/* CONTACT */
+#contact{background:var(--bg);border-top:1px solid var(--subtle)}
+.cw{text-align:center;max-width:570px;margin:0 auto}
+.ctxt{font-size:1.01rem;color:var(--muted);margin-bottom:2.25rem;line-height:1.75}
+.ctxt strong{color:var(--text)}
+.socs{display:flex;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.soc{display:flex;align-items:center;gap:.42rem;padding:.58rem 1.15rem;border:1px solid var(--subtle);border-radius:7px;color:var(--muted);text-decoration:none;font-size:.83rem;font-weight:500;transition:all .2s}
+.soc:hover{border-color:var(--accent);color:var(--accent);background:var(--adim)}
+.soc.em:hover{border-color:var(--green);color:var(--green);background:var(--gdim)}
+
+footer{background:var(--surface);border-top:1px solid var(--subtle);text-align:center;padding:2rem;color:var(--muted);font-size:.78rem;font-family:'Fira Code',monospace}
+footer span{color:var(--accent)}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+.r.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+  .links{display:none}
+  .ag{grid-template-columns:1fr;gap:2.5rem}
+  section{padding:4rem 1.25rem}
+  .tl{padding-left:1.35rem}
+  .ti{padding-left:1.35rem}
+  .ti::before{left:-1.35rem}
+}
+</style>
+</head>
+<body>
+
+<nav id="n">
+  <a href="#hero" class="logo">SKRB<span>.</span></a>
+  <ul class="links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <canvas id="cvs"></canvas>
+  <div class="hc">
+    <div class="status-badge" style="opacity:0;animation:fu .8s ease .1s forwards">
+      <span class="sdot"></span>
+      Available · Open to opportunities
+    </div>
+    <p class="eyebrow">// Agentic AI · RAG · LLMs · MLOps · Deep Learning</p>
+    <h1 class="hname">
+      Sudheer Kumar<br><span class="hi">Reddy Batthina</span>
+    </h1>
+    <div class="htw">
+      <div class="roller">
+        <span>Senior AI/ML <em>Engineer</em></span>
+        <span>Agentic AI &amp; RAG <em>Architect</em></span>
+        <span>LLM <em>Specialist</em></span>
+        <span>MLOps <em>Engineer</em></span>
+      </div>
+    </div>
+    <p class="hbio">
+      Building agentic AI systems, GraphRAG pipelines, and LLM-powered products that move from
+      <strong>prototype to production</strong>. 5+ years across <strong>AWS</strong>, <strong>Azure</strong>,
+      and <strong>GCP</strong> — with a focus on reliability, low latency, and measurable impact.
+    </p>
+    <div class="hcta">
+      <a href="https://sourcebound.dev" target="_blank" class="btn bg">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        sourcebound.dev
+      </a>
+      <a href="#contact" class="btn bp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Get in Touch
+      </a>
+      <a href="https://github.com/sudheerbatthina" target="_blank" class="btn bo">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/sudheerbatthina/" target="_blank" class="btn bo">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="pip"></div>scroll</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="con">
+    <div class="sh r">
+      <p class="slbl">Who I Am</p>
+      <h2 class="stit">About Me</h2>
+      <div class="srul"></div>
+    </div>
+    <div class="ag">
+      <div class="abio r">
+        <p>I'm <strong>Sudheer Kumar Reddy Batthina</strong>, a Senior AI/ML Engineer based in <strong>Buffalo, NY</strong>. I specialize in <strong>agentic AI systems</strong>, RAG applications, and LLM-powered products that move complex workflows from prototype to reliable production.</p>
+        <p>With 5+ years of experience, I work across multi-agent orchestration, MCP tool integration, GraphRAG, fine-tuning, and rigorous LLM evaluation — backed by deep expertise in <strong>LangGraph</strong>, <strong>LangChain</strong>, <strong>LlamaIndex</strong>, and the OpenAI Agents SDK.</p>
+        <p>I ship scalable solutions on AWS, Azure, and GCP with a consistent focus on reliability, low latency, and measurable business impact. Most recently, I built and launched <strong><a href="https://sourcebound.dev" target="_blank">SourceBound</a></strong> — a production agentic RAG platform grounding every answer to verified sources.</p>
+        <p style="margin-top:1.5rem"><a href="https://www.linkedin.com/in/sudheerbatthina/" target="_blank">Full LinkedIn profile →</a></p>
+      </div>
+      <div>
+        <div class="sg r">
+          <div class="st"><div class="sn">5+</div><div class="sl">Years of Experience</div></div>
+          <div class="st"><div class="sn">4</div><div class="sl">Roles Held</div></div>
+          <div class="st"><div class="sn">800</div><div class="sl">QPS RAG at Scale</div></div>
+          <div class="st"><div class="sn">MS</div><div class="sl">Data Science, UB</div></div>
+        </div>
+        <div class="edu r">
+          <div class="eduico">🎓</div>
+          <div>
+            <div class="edudeg">Master of Science in Data Science</div>
+            <div class="eduuni">State University of New York at Buffalo</div>
+            <div class="eduyear">Jan 2024 — May 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="con">
+    <div class="sh r"><p class="slbl">Where I've Worked</p><h2 class="stit">Experience</h2><div class="srul"></div></div>
+    <div class="tl">
+
+      <div class="ti current r">
+        <div class="tmeta">
+          <span class="tco">Hologic</span>
+          <span class="trole cur">Senior AI/ML Engineer</span>
+        </div>
+        <div class="tperiod">Jun 2025 – Present · Buffalo, NY</div>
+        <ul class="tbullets">
+          <li>Architected an enterprise <strong>RAG and GraphRAG</strong> assistant for scientific and clinical teams — searching, synthesizing, and citing answers across clinical literature and internal knowledge bases <span class="badge g">↓50% synthesis time</span> <span class="badge g">$60K–100K tool savings</span></li>
+          <li>Scaled retrieval to ~<strong>800 QPS</strong> and reduced hallucination-prone answers using section-aware chunking, knowledge-graph grounding, metadata filtering, hybrid retrieval, semantic reranking, and citation validation <span class="badge g">↓35–40% hallucinations</span></li>
+          <li>Delivered an <strong>agentic workflow assistant</strong> on LangGraph, OpenAI Agents SDK, and MCP tool integrations — automating ticket triage, root cause summarization, and case routing with function calling and human-in-the-loop approvals</li>
+          <li>Built an LLM evaluation and observability layer with <strong>Ragas, DeepEval, and OpenTelemetry</strong> tracing to score groundedness and trace planning, retrieval, and tool-use spans <span class="badge g">↓30% release cycles</span></li>
+          <li>Fine-tuned open-source LLMs with <strong>LoRA and QLoRA</strong> for domain adaptation; built PyTorch inference pipelines for medical imaging <span class="badge g">↓30% inference turnaround</span></li>
+          <li>Cut response latency via <strong>FastAPI + Redis semantic caching</strong>, async processing, and vLLM-based serving under compliance-aware controls <span class="badge g">↓25–30% latency</span></li>
+        </ul>
+      </div>
+
+      <div class="ti r">
+        <div class="tmeta">
+          <span class="tco">University at Buffalo</span>
+          <span class="trole">Graduate Research Assistant</span>
+        </div>
+        <div class="tperiod">Aug 2024 – Dec 2024 · Buffalo, NY</div>
+        <ul class="tbullets">
+          <li>Built statistical and ML evaluation pipelines in Python, Pandas, and Scikit-learn for reproducible model comparisons <span class="badge">↓25% manual checking</span></li>
+          <li>Developed an <strong>LLM literature search assistant</strong> with LangChain, FAISS, and Sentence Transformers pairing semantic retrieval with agentic query planning <span class="badge">↓35% search time</span></li>
+          <li>Authored preprocessing, feature analysis, and evaluation notebooks enabling consistent cross-experiment model performance comparisons</li>
+        </ul>
+      </div>
+
+      <div class="ti r">
+        <div class="tmeta">
+          <span class="tco">Wipro Limited</span>
+          <span class="trole">AI/ML Engineer</span>
+        </div>
+        <div class="tperiod">May 2022 – Mar 2024</div>
+        <ul class="tbullets">
+          <li>Drove GenAI and ML adoption across teams by building reusable AI components, prompt pipelines, RAG services, predictive models, and evaluation logic aligned with enterprise governance</li>
+          <li>Built BERT and Transformer NLP models in PyTorch to classify production log patterns and detect anomalies <span class="badge">↑18% detection precision</span></li>
+          <li>Standardized ML training on <strong>MLflow, Airflow, Docker, Kubernetes, GitHub Actions, and Azure DevOps</strong> <span class="badge">↓28% release turnaround</span></li>
+          <li>Productionized anomaly-detection models as <strong>FastAPI inference services</strong> exposing REST APIs to internal monitoring platforms</li>
+          <li>Engineered large-scale telemetry pipelines on PySpark, Azure Databricks, and Delta Lake <span class="badge">↑30% analytics throughput</span></li>
+        </ul>
+      </div>
+
+      <div class="ti r">
+        <div class="tmeta">
+          <span class="tco">Wipro Limited</span>
+          <span class="trole">Associate ML Engineer</span>
+        </div>
+        <div class="tperiod">Dec 2020 – May 2022</div>
+        <ul class="tbullets">
+          <li>Built Python and SQL pipelines ingesting, cleaning, and transforming large structured and unstructured datasets into model-ready inputs for predictive modeling, NLP, and anomaly detection</li>
+          <li>Developed and evaluated models with PyTorch, Scikit-learn, and XGBoost — applying feature engineering and statistical analysis to improve classification performance</li>
+          <li>Automated data preparation and deployment with Docker, Git, and CI/CD, reducing manual effort across ML workstreams</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="con">
+    <div class="sh r"><p class="slbl">Technical Stack</p><h2 class="stit">Skills</h2><div class="srul"></div></div>
+    <div class="skgrid">
+      <div class="scat r">
+        <div class="scico">🤖</div>
+        <div class="scname">Agentic AI &amp; Orchestration</div>
+        <div class="tags">
+          <span class="tag">LangGraph</span><span class="tag">OpenAI Agents SDK</span>
+          <span class="tag">CrewAI</span><span class="tag">AutoGen</span>
+          <span class="tag">PydanticAI</span><span class="tag">Google ADK</span>
+          <span class="tag">MCP</span><span class="tag">Tool Calling</span>
+        </div>
+      </div>
+      <div class="scat r">
+        <div class="scico">🔍</div>
+        <div class="scname">RAG &amp; Retrieval</div>
+        <div class="tags">
+          <span class="tag">RAG</span><span class="tag">GraphRAG</span>
+          <span class="tag">Hybrid Search</span><span class="tag">FAISS</span>
+          <span class="tag">Pinecone</span><span class="tag">Weaviate</span>
+          <span class="tag">Qdrant</span><span class="tag">pgvector</span>
+        </div>
+      </div>
+      <div class="scat r">
+        <div class="scico">🧪</div>
+        <div class="scname">LLM Eval &amp; Observability</div>
+        <div class="tags">
+          <span class="tag">Ragas</span><span class="tag">DeepEval</span>
+          <span class="tag">LangSmith</span><span class="tag">Langfuse</span>
+          <span class="tag">OpenTelemetry</span><span class="tag">Guardrails</span>
+          <span class="tag">Groundedness</span><span class="tag">vLLM</span>
+        </div>
+      </div>
+      <div class="scat r">
+        <div class="scico">💡</div>
+        <div class="scname">LLMs &amp; Fine-Tuning</div>
+        <div class="tags">
+          <span class="tag">GPT</span><span class="tag">Claude</span>
+          <span class="tag">Gemini</span><span class="tag">Llama</span>
+          <span class="tag">Mistral</span><span class="tag">LoRA / QLoRA</span>
+          <span class="tag">RLHF</span><span class="tag">HuggingFace</span>
+        </div>
+      </div>
+      <div class="scat r">
+        <div class="scico">⚙️</div>
+        <div class="scname">MLOps &amp; Infrastructure</div>
+        <div class="tags">
+          <span class="tag">MLflow</span><span class="tag">Airflow</span>
+          <span class="tag">FastAPI</span><span class="tag">Docker</span>
+          <span class="tag">Kubernetes</span><span class="tag">GitHub Actions</span>
+          <span class="tag">AWS Bedrock</span><span class="tag">Azure OpenAI</span>
+        </div>
+      </div>
+      <div class="scat r">
+        <div class="scico">📊</div>
+        <div class="scname">Data &amp; ML</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">PyTorch</span>
+          <span class="tag">Scikit-learn</span><span class="tag">PySpark</span>
+          <span class="tag">Databricks</span><span class="tag">Delta Lake</span>
+          <span class="tag">SQL</span><span class="tag">XGBoost</span>
+        </div>
+      </div>
+      <div class="scat r">
+        <div class="scico">🔬</div>
+        <div class="scname">Data Science &amp; Analytics</div>
+        <div class="tags">
+          <span class="tag">Pandas</span><span class="tag">NumPy</span>
+          <span class="tag">Statistical Analysis</span><span class="tag">A/B Testing</span>
+          <span class="tag">Hypothesis Testing</span><span class="tag">EDA</span>
+          <span class="tag">Data Visualization</span><span class="tag">Tableau</span>
+          <span class="tag">Power BI</span><span class="tag">SQL Analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="con">
+    <div class="sh r"><p class="slbl">Built &amp; Shipped</p><h2 class="stit">GitHub Projects</h2><div class="srul"></div></div>
+
+    <!-- Featured: Sourcebound spans full width -->
+    <a href="https://github.com/sudheerbatthina/Sourcebound" target="_blank" class="pc featured r" style="display:flex;flex-direction:row;gap:2rem;align-items:flex-start;margin-bottom:1.2rem">
+      <div style="flex:1">
+        <div class="ptop" style="margin-bottom:.7rem">
+          <div class="pname" style="font-size:1.2rem">Sourcebound <span class="flive">● LIVE</span></div>
+          <svg class="pext" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="pdesc" style="font-size:.93rem;margin-bottom:1rem">Private RAG assistant for asking questions over organisation documents — PDFs, policies, and playbooks. Answers are grounded in source citations and designed for healthcare/HIPAA compliance. Combines ChromaDB, OpenAI embeddings, Cohere reranking, and Redis caching behind a Streamlit UI.</div>
+        <div class="ptags">
+          <span class="ptag">FastAPI</span><span class="ptag">Streamlit</span>
+          <span class="ptag">ChromaDB</span><span class="ptag">OpenAI Embeddings</span>
+          <span class="ptag">Cohere Reranking</span><span class="ptag">Redis</span>
+          <span class="ptag">Docker</span><span class="ptag">HIPAA</span>
+        </div>
+      </div>
+      <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:.5rem 0">
+        <div style="font-size:3rem">🔗</div>
+        <div style="font-family:'Fira Code',monospace;font-size:.7rem;color:var(--green)">sourcebound.dev</div>
+      </div>
+    </a>
+
+    <div class="pgrid">
+
+      <a href="https://github.com/sudheerbatthina/styletrip.ai" target="_blank" class="pc r">
+        <div class="ptop">
+          <span class="pico">👗</span>
+          <svg class="pext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="pname">styletrip.ai</div>
+        <div class="pdesc">AI-powered personal styling web app. Upload a photo, answer style questions (occasion, weather, budget, vibe), and get a curated fashion board with outfit ideas. Works in demo mode without paid APIs.</div>
+        <div class="ptags">
+          <span class="ptag">Next.js</span><span class="ptag">TypeScript</span>
+          <span class="ptag">Tailwind</span><span class="ptag">Supabase</span>
+          <span class="ptag">OpenAI</span><span class="ptag">Gemini</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/sudheerbatthina/agentic-wikipedia-RAG-Agent" target="_blank" class="pc r">
+        <div class="ptop">
+          <span class="pico">🧠</span>
+          <svg class="pext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="pname">Agentic Wikipedia RAG Agent</div>
+        <div class="pdesc">AI agent that answers Wikipedia questions using retrieval and reasoning. Rewrites queries for better search, uses FAISS vector embeddings, validates answers against retrieved evidence, and retries on failure.</div>
+        <div class="ptags">
+          <span class="ptag">LangGraph</span><span class="ptag">FAISS</span>
+          <span class="ptag">LangChain</span><span class="ptag">Python</span>
+          <span class="ptag">Jupyter</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/sudheerbatthina/spark-streamlit-ml-pipeline" target="_blank" class="pc r">
+        <div class="ptop">
+          <span class="pico">⚡</span>
+          <svg class="pext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="pname">Spark Streamlit ML Pipeline</div>
+        <div class="pdesc">End-to-end ML pipeline with PySpark handling large-scale data preprocessing and feature engineering, paired with an interactive Streamlit UI for model training, evaluation, and live visualisation.</div>
+        <div class="ptags">
+          <span class="ptag">PySpark</span><span class="ptag">Streamlit</span>
+          <span class="ptag">Python</span><span class="ptag">Pandas</span>
+          <span class="ptag">Jupyter</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/sudheerbatthina/ev-vs-gas-postgres-etl" target="_blank" class="pc r">
+        <div class="ptop">
+          <span class="pico">🔋</span>
+          <svg class="pext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="pname">EV vs Gas PostgreSQL ETL</div>
+        <div class="pdesc">Data pipeline that generates EV vs gas vehicle comparison data, loads it into PostgreSQL, and runs analytical SQL queries. Includes a Tableau dashboard for visualisation and cross-vehicle-type insights.</div>
+        <div class="ptags">
+          <span class="ptag">Python</span><span class="ptag">PostgreSQL</span>
+          <span class="ptag">ETL</span><span class="ptag">Tableau</span>
+          <span class="ptag">SQL</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/sudheerbatthina/Adventure-works-2025-migration-to-snowflake" target="_blank" class="pc r">
+        <div class="ptop">
+          <span class="pico">❄️</span>
+          <svg class="pext" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+        <div class="pname">Adventure Works → Snowflake Migration</div>
+        <div class="pdesc">Database migration project moving the Adventure Works 2025 dataset to Snowflake cloud data warehouse — covering schema translation, ETL scripting, and query optimisation for cloud-native analytics.</div>
+        <div class="ptags">
+          <span class="ptag">Snowflake</span><span class="ptag">SQL</span>
+          <span class="ptag">ETL</span><span class="ptag">Data Migration</span>
+        </div>
+      </a>
+
+      <div class="pc r" style="cursor:default;opacity:.7">
+        <div class="ptop">
+          <span class="pico">📍</span>
+          <span style="font-family:'Fira Code',monospace;font-size:.68rem;color:var(--muted);background:var(--surface);padding:.12rem .5rem;border-radius:4px">Private</span>
+        </div>
+        <div class="pname">PinPoint</div>
+        <div class="pdesc">Flutter mobile app that notifies you when you're within a 1-mile radius of saved locations — like a grocery store or dry cleaner. Location-based reminder assistant for iOS with Google Maps SDK integration.</div>
+        <div class="ptags">
+          <span class="ptag">Flutter</span><span class="ptag">Dart</span>
+          <span class="ptag">Google Maps SDK</span><span class="ptag">iOS</span>
+          <span class="ptag">Location Services</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:2rem">
+      <a href="https://github.com/sudheerbatthina" target="_blank" class="btn bo">View all on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="con">
+    <div class="sh r"><p class="slbl">Credentials</p><h2 class="stit">Certifications</h2><div class="srul"></div></div>
+    <div class="cgrid">
+      <div class="cc r">
+        <div class="cico c1">⚡</div>
+        <div class="cbody"><h4>Machine Learning Engineering for Production (MLOps)</h4><div class="ciss">DeepLearning.AI · Coursera</div></div>
+      </div>
+      <div class="cc r">
+        <div class="cico c3">🤖</div>
+        <div class="cbody"><h4>Generative AI with Large Language Models</h4><div class="ciss">DeepLearning.AI · Coursera</div></div>
+      </div>
+      <div class="cc r">
+        <div class="cico c3">🧠</div>
+        <div class="cbody"><h4>Deep Learning Specialization</h4><div class="ciss">DeepLearning.AI · Coursera</div></div>
+      </div>
+      <div class="cc r">
+        <div class="cico c4">🔷</div>
+        <div class="cbody"><h4>AI Engineering with Python, PyTorch &amp; TensorFlow</h4><div class="ciss">IBM · Coursera</div></div>
+      </div>
+      <div class="cc r">
+        <div class="cico c5">💬</div>
+        <div class="cbody"><h4>Natural Language Processing with Transformers</h4><div class="ciss">LinkedIn Learning</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="con">
+    <div class="sh r" style="text-align:center">
+      <p class="slbl">Let's Connect</p>
+      <h2 class="stit">Get in Touch</h2>
+      <div class="srul" style="margin:.85rem auto 0"></div>
+    </div>
+    <div class="cw">
+      <p class="ctxt r">Open to <strong>Senior AI/ML</strong>, <strong>Agentic AI</strong>, and <strong>LLM Engineer</strong> roles. Building something with RAG or agentic systems? I'd love to hear about it.</p>
+      <div class="socs r">
+        <a href="mailto:sudheerbatthina@gmail.com" class="soc em">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          sudheerbatthina@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/sudheerbatthina/" target="_blank" class="soc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/sudheerbatthina" target="_blank" class="soc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://sourcebound.dev" target="_blank" class="soc">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          SourceBound
+        </a>
+      </div>
+      <p style="margin-top:1.25rem;font-size:.8rem;color:var(--muted);font-family:'Fira Code',monospace">📞 716-305-8248</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built by <span>Sudheer Kumar Reddy Batthina</span> · Buffalo, NY · <span>2025</span></p>
+</footer>
+
+<script>
+// Particle neural network
+const canvas=document.getElementById('cvs'),ctx=canvas.getContext('2d');
+let W,H,parts=[],mouse={x:null,y:null};
+function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight}
+window.addEventListener('resize',()=>{resize();init()});
+canvas.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top});
+canvas.addEventListener('mouseleave',()=>{mouse.x=mouse.y=null});
+class P{
+  constructor(){this.reset()}
+  reset(){this.x=Math.random()*W;this.y=Math.random()*H;this.vx=(Math.random()-.5)*.36;this.vy=(Math.random()-.5)*.36;this.r=Math.random()*1.7+.7;this.a=Math.random()*.42+.16;this.ps=Math.random()*.017+.008;this.po=Math.random()*Math.PI*2}
+  step(t){
+    this.x+=this.vx;this.y+=this.vy;
+    if(this.x<0||this.x>W)this.vx*=-1;
+    if(this.y<0||this.y>H)this.vy*=-1;
+    if(mouse.x!==null){const dx=this.x-mouse.x,dy=this.y-mouse.y,d=Math.hypot(dx,dy);if(d<115){const f=(115-d)/115;this.vx+=(dx/d)*f*.25;this.vy+=(dy/d)*f*.25}this.vx*=.97;this.vy*=.97}
+    this.ca=this.a*(.62+.38*Math.sin(t*this.ps+this.po))
+  }
+  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle=`rgba(108,99,255,${this.ca})`;ctx.fill()}
+}
+function init(){const n=Math.min(Math.floor(W*H/11500),85);parts=Array.from({length:n},()=>new P())}
+function edges(){
+  const D=150;
+  for(let i=0;i<parts.length;i++){
+    for(let j=i+1;j<parts.length;j++){
+      const dx=parts[i].x-parts[j].x,dy=parts[i].y-parts[j].y,d=Math.hypot(dx,dy);
+      if(d<D){ctx.beginPath();ctx.moveTo(parts[i].x,parts[i].y);ctx.lineTo(parts[j].x,parts[j].y);ctx.strokeStyle=`rgba(108,99,255,${(1-d/D)*.13})`;ctx.lineWidth=.5;ctx.stroke()}
+    }
+    if(mouse.x!==null){const dx=parts[i].x-mouse.x,dy=parts[i].y-mouse.y,d=Math.hypot(dx,dy);if(d<210){ctx.beginPath();ctx.moveTo(parts[i].x,parts[i].y);ctx.lineTo(mouse.x,mouse.y);ctx.strokeStyle=`rgba(52,211,153,${(1-d/210)*.35})`;ctx.lineWidth=.7;ctx.stroke()}}
+  }
+}
+let t=0;
+function loop(){requestAnimationFrame(loop);ctx.clearRect(0,0,W,H);edges();t++;parts.forEach(p=>{p.step(t);p.draw()})}
+resize();init();loop();
+
+// Scroll reveal
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.1,rootMargin:'0px 0px -35px 0px'});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+// Nav shrink
+window.addEventListener('scroll',()=>document.getElementById('n').classList.toggle('sc',scrollY>55));
+</script>
+</body>
+</html>
