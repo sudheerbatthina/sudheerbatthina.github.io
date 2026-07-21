@@ -47,3 +47,11 @@ test('includes accessibility and responsive safeguards', () => {
 test('provides an inline favicon without another network request', () => {
   assert.match(html, /<link rel="icon" href="data:image\/svg\+xml,/);
 });
+
+test('offers the supplied resume and describes enterprise collaboration accurately', () => {
+  assert.match(html, /href="assets\/sudheer-batthina-resume\.pdf"[^>]*download/i);
+  for (const company of ['NVIDIA', 'Google Cloud', 'Adobe', 'Salesforce', 'Databricks', 'Microsoft', 'AWS']) {
+    assert.match(visibleText, new RegExp(company, 'i'));
+  }
+  assert.match(visibleText, /enterprise technology ecosystems/i);
+});

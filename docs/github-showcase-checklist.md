@@ -8,7 +8,7 @@
 - [x] Add verified test evidence and exact public repository links.
 - [x] Remove the phone number, unsupported live claims, and weak projects.
 - [x] Add responsive, keyboard, reduced-motion, and automated checks.
-- [ ] Add a resume download after a current PDF is supplied.
+- [x] Add the current resume as a direct download.
 - [ ] Publish the verified commit to GitHub Pages.
 
 ## GitHub Profile
@@ -48,7 +48,8 @@
 
 - [x] Sourcebound: keep private until Git history is sanitized; show a case study.
 - [x] RemaindALL: keep private through App Store preparation; show a case study.
-- [ ] StyleTrip.ai: make private temporarily after preserving recruiter evidence.
+- [x] StyleTrip.ai: preserve the GitHub repository; never delete or archive it.
+- [ ] StyleTrip.ai: optionally make it private temporarily while keeping the full repository intact.
 
 ## Final Account Cleanup
 
